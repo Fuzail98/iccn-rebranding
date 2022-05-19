@@ -15,5 +15,5 @@ else
 	echo "No changes have taken place. Please try again!"
 fi
 
-cd ../..
-rm -r iccn-bash/
+cd ..
+rm -r iccn-theme/
