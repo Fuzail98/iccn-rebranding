@@ -8,6 +8,7 @@ then
   echo "!..!"
 else
   echo "Installing package 'jq'"
+fi
 
 jq '.product_copyright_owner = "ICCN"' core > temp.json
 jq '.product_copyright_url = "https://www.iccnetworking.com"' core > temp.json
