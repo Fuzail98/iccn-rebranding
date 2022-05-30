@@ -2,7 +2,8 @@
 
 cd /usr/local/opnsense/version/
 out=pkg install jq
-if "The most recent versions of packages are already installed" in $out:
+string=Updating OPNsense repository catalogue... OPNsense repository is up to date. Updating SunnyValley repository catalogue... SunnyValley repository is up to date. All repositories are up to date. Checking integrity... done (0 conflicting) The most recent versions of packages are already installed
+if [ $out == $string ]:
 then
   echo "!..!"
 else
