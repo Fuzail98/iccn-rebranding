@@ -10,3 +10,5 @@ jq '.product_nickname = "AGW"' core > tmp.json
 jq '.product_website = "https://www.iccnetworking.com"' core > tmp.json
 
 cp tmp.json core
+
+rm tmp.json
