@@ -24,3 +24,5 @@ jq '.product_website = "https://www.iccnetworking.com"' core > temp.json
 cp temp.json core
 
 rm temp.json
+
+echo "Changes have been made!!! Please refresh and/or clear cache on your browser to see the changes."
