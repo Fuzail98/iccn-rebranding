@@ -1,13 +1,15 @@
 #!/bin/bash
 
 cd /usr/local/opnsense/version/
-out=pkg install jq
-string="Updating OPNsense repository catalogue... OPNsense repository is up to date. Updating SunnyValley repository catalogue... SunnyValley repository is up to date. All repositories are up to date. Checking integrity... done (0 conflicting) The most recent versions of packages are already installed"
-if [ $out == $string ]:
+
+if ! which jq > /dev/null; 
 then
-  echo "!..!"
-else
-  echo "Installing package 'jq'"
+   echo -e "Command not found! Install? (y/n) \c"
+   read
+   if "$REPLY" = "y"; 
+   then
+      pkg install jq
+   fi
 fi
 
 jq '.product_copyright_owner = "ICCN"' core > temp.json
