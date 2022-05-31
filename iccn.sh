@@ -26,16 +26,16 @@ cd /usr/local/opnsense/version/
 
 # Since the core file is json data, we will be needing the 'jq' package
 
-pkg_name=jq
-out=$(pkg info $pkg_name | grep Name)
-compare_string="Name           : $pkg_name"
+pkg_name1=jq
+out=$(pkg info $pkg_name1 | grep Name)
+compare_string="Name           : $pkg_name1"
 
 if [ "$out" == "$compare_string" ]
 then
-    echo "Package: $pkg_name already installed. Executing the commands to make changes in the core file!!!"
+    echo "Package: $pkg_name1 already installed. Executing the commands to make changes in the core file!!!"
 else
-    echo "$pkg_name not installed. Installing ' $pkg_name ' ..."
-    pkg install $pkg_name
+    echo "$pkg_name1 not installed. Installing ' $pkg_name1 ' ..."
+    pkg install $pkg_name1
 fi
 
 # Making changes in the JSON file
