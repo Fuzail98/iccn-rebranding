@@ -40,23 +40,13 @@ fi
 
 # Making changes in the JSON file
 
-jq '.product_copyright_owner = "ICCN"' core > temp.json
-cp temp.json core
-rm temp.json
-jq '.product_copyright_url = "https://www.iccnetworking.com"' core > temp.json
-cp temp.json core
-rm temp.json
-jq '.product_email = "info@iccnetworking.com"' core > temp.json
-cp temp.json core
-rm temp.json
-jq '.product_name = "AGW"' core > temp.json
-cp temp.json core
-rm temp.json
-jq '.product_nickname = "AGW"' core > temp.json
-cp temp.json core
-rm temp.json
-jq '.product_website = "https://www.iccnetworking.com"' core > temp.json
-cp temp.json core
-rm temp.json
+#!/bin/bash
+
+jq '.product_copyright_owner = "ICCN"' core > test.json && mv test.json core
+jq '.product_copyright_url = "https://www.iccnetworking.com" core > test.json && mv test.json core
+jq '.product_email = "info@iccnetworking.com"' core > test.json && mv test.json core
+jq '.product_name = "AGW"' core > test.json && mv test.json core
+jq '.product_nickname = "AGW"' core > test.json && mv test.json core
+jq '.product_website = "https://www.iccnetworking.com"' core > test.json && mv test.json core
 
 echo "Changes have been made!!! Please refresh and/or clear cache on your browser to see the changes."
