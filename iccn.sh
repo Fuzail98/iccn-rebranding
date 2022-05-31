@@ -11,12 +11,11 @@ if [ -d /root/iccn-bash/iccn-theme ]
 then
 	cp *.* /usr/local/opnsense/www/themes/tukan/build/images/
 	echo "Theme changed! Please refresh you Web GUI and/or clear cache to see the results."
+	cd ..
+	rm -r iccn-theme/
 else
 	echo "No changes have taken place. Please try again!"
 fi
-
-cd ..
-rm -r iccn-theme/
 
 echo "############################################################################################################################"
 
@@ -42,7 +41,6 @@ jq '.product_nickname = "AGW"' core > temp.json
 jq '.product_website = "https://www.iccnetworking.com"' core > temp.json
 
 cp temp.json core
-
 rm temp.json
 
 echo "Changes have been made!!! Please refresh and/or clear cache on your browser to see the changes."
