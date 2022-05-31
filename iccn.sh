@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#Downloading the ICCN theme logos from github
+# Downloading the ICCN theme logos from github
 
 git clone https://github.com/Fuzail98/iccn-theme.git
 
-#Going into the iccn-theme directory to copy images to the directory for changing to ICCN Theme from OPNsense
+# Going into the iccn-theme directory to copy images to the directory for changing to ICCN Theme from OPNsense
 
 cd iccn-theme
 if [ -d /root/iccn-bash/iccn-theme ]
@@ -19,7 +19,12 @@ fi
 
 echo "############################################################################################################################"
 
+# Editing the core file for changing from OPNsense copyright to ICCN
+
+#Path of core file
 cd /usr/local/opnsense/version/
+
+# Since the core file is json data, we will be needing the 'jq' package
 
 pkg_name=jq
 out=$(pkg info $pkg_name | grep Name)
@@ -32,6 +37,8 @@ else
     echo "$pkg_name not installed. Installing ' $pkg_name ' ..."
     pkg install $pkg_name
 fi
+
+# Making changes in the JSON file
 
 jq '.product_copyright_owner = "ICCN"' core > temp.json
 jq '.product_copyright_url = "https://www.iccnetworking.com"' core > temp.json
