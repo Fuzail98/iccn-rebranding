@@ -2,17 +2,17 @@
 
 cd /usr/local/opnsense/version/
 
-#if ! which jq > /dev/null; 
-#then
-#   echo -e "Command not found! Install? (y/n) \c"
-#   read
-#   if "$REPLY" = "y"; 
-#   then
-#      pkg install jq
-#   fi
-#fi
+pkg_name=jq
+out=$(pkg info $pkg_name | grep Name)
+compare_string="Name           : $pkg_name"
 
-pkg install jq
+if [ "$out" == "$compare_string" ]
+then
+    echo "Package: $pkg_name already installed. Executing the commands to make changes in the core file!!!"
+else
+    echo "$pkg_name not installed. Installing ' $pkg_name ' ..."
+    pkg install $pkg_name
+fi
 
 jq '.product_copyright_owner = "ICCN"' core > temp.json
 jq '.product_copyright_url = "https://www.iccnetworking.com"' core > temp.json
