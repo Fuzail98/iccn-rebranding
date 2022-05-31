@@ -10,7 +10,7 @@ cd iccn-theme
 if [ -d /root/iccn-bash/iccn-theme ]
 then
 	cp *.* /usr/local/opnsense/www/themes/tukan/build/images/
-	echo "Theme changed! Please refresh you Web GUI and/or clear cache to see the results."
+	echo "Logos have been changed! Please refresh you Web GUI and/or clear cache to see the results."
 	cd ..
 	rm -r iccn-theme/
 else
