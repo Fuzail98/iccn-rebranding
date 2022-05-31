@@ -43,7 +43,7 @@ fi
 #!/bin/bash
 
 jq '.product_copyright_owner = "ICCN"' core > test.json && mv test.json core
-jq '.product_copyright_url = "https://www.iccnetworking.com" core > test.json && mv test.json core
+jq '.product_copyright_url = "https://www.iccnetworking.com"' core > test.json && mv test.json core
 jq '.product_email = "info@iccnetworking.com"' core > test.json && mv test.json core
 jq '.product_name = "AGW"' core > test.json && mv test.json core
 jq '.product_nickname = "AGW"' core > test.json && mv test.json core
