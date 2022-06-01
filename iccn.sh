@@ -16,37 +16,3 @@ then
 else
 	echo "No changes have taken place. Please try again!"
 fi
-
-echo "############################################################################################################################"
-
-# Editing the core file for changing from OPNsense copyright to ICCN
-
-#Path of core file
-cd /usr/local/opnsense/version/
-
-# Since the core file is json data, we will be needing the 'jq' package
-
-pkg_name1=jq
-out=$(pkg info $pkg_name1 | grep Name)
-compare_string="Name           : $pkg_name1"
-
-if [ "$out" == "$compare_string" ]
-then
-    echo "Package: $pkg_name1 already installed. Executing the commands to make changes in the core file!!!"
-else
-    echo "$pkg_name1 not installed. Installing ' $pkg_name1 ' ..."
-    pkg install $pkg_name1
-fi
-
-# Making changes in the JSON file
-
-#!/bin/bash
-
-jq '.product_copyright_owner = "ICCN"' core > test.json && mv test.json core
-jq '.product_copyright_url = "https://www.iccnetworking.com"' core > test.json && mv test.json core
-jq '.product_email = "info@iccnetworking.com"' core > test.json && mv test.json core
-jq '.product_name = "AGW"' core > test.json && mv test.json core
-jq '.product_nickname = "AGW"' core > test.json && mv test.json core
-jq '.product_website = "https://www.iccnetworking.com"' core > test.json && mv test.json core
-
-echo "Changes have been made!!! Please refresh and/or clear cache on your browser to see the changes."
