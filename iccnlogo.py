@@ -17,15 +17,15 @@ shell = sshcli.invoke_shell()
 print('Connected!!!')
 shell.send('8' + '\n')
 time.sleep(1)
-tmp = shell.recv(10000)
+tmpout1 = shell.recv(10000)
 print('\n')
 
 # Checking if git package is installed and install it if it isn't
 
 shell.send(f'pkg info git' + '\n')
 time.sleep(2)
-out = shell.recv(10000)
-if "pkg: No package(s) matching git" in out.decode():
+tmpout2 = shell.recv(10000)
+if "pkg: No package(s) matching git" in tmpout2.decode():
     shell.send('pkg install git' + '\n')
     time.sleep(2)
     shell.send('y' + '\n')
@@ -43,16 +43,16 @@ for cmnd in commands:
     shell.send(cmnd + '\n')
     time.sleep(2)
 
-out1 = shell.recv(10000)
+tmpout3 = shell.recv(10000)
 
 print('#' * 100)
 
 shell.send('ls /usr/local/opnsense/www/themes/tukan/build/images/' + '\n')
 time.sleep(2)
-output1 = shell.recv(10000)
-# print(output1.decode())
+tmpout4 = shell.recv(10000)
+# print(tmpout4.decode())
 
-if 'iccn' in output1.decode():
+if 'iccn' in tmpout4.decode():
     print('Changes have been changed! Please refresh your GUI and/or clear the cache on your browser.')
 else:
     print("Changes haven't been made!!! Please try again.")
