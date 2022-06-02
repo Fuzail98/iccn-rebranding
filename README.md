@@ -8,12 +8,14 @@ One method is a bash script that should run on the shell of the gateway and the 
 There are three scripts for each method. It depends on three different scenarios:
 
 1. Only logos have reverted back to OPNsense
+
   For this one can run iccnlogo.sh on their gateway's shell after cloning this repository on their gateway. If git package is not available kindly run the iccnlogo.py
   script or use the following command to install git package.
   
               pkg install -y git
               
   How iccnlogo.sh works?
+  
     There is a repository named iccn-theme wherein are stored latest iccn logos. The bash script clone that repository and downloads all the images. It then changes
     its directory to the downloaded iccn-theme/ and then copies all the images to the main file where all the logos are present on the gateway responisble for
     GUI changes. It then deletes the iccn-theme/ directory, so that next the same issue comes, the folders should not overlap.
@@ -24,14 +26,20 @@ There are three scripts for each method. It depends on three different scenarios
   directory.
   
   How it works?
+  
     This script uses Paramiko module to establish the ssh connection to the gateway and runs a series of commands for hte changes to take place. At the start one is 
     asked to enter the IP address of the gateway, user with root privileges and its password. After that just sit back and relax while the changes take place.
     
 2. Only the core file content has changed
+
   One can either run the iccncore.sh or iccncore.py. Here we are trying to edit /usr/local/opnsense/version/core file which contains json data abot copyright owner,
   url, name and links associated with the gateway. The process is same either run the bash file iccncore.sh or run the python script iccncore.py
  
 3. Both logos and core file content has changed
+
   For this we have created a script combining both the above type of scripts.
   
+Note: After cloning this repository (iccn-rebranding), one needs to change to the directory iccn-rebranding/ nad on ecan find all the scripts and file of the repo 
+there. 
+
 Hope this helps!!!
