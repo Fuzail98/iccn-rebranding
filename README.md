@@ -39,7 +39,7 @@ There are three scripts for each method. It depends on three different scenarios
 
   For this we have created a script combining both the above type of scripts.
   
-Note: After cloning this repository (iccn-rebranding), one needs to change to the directory iccn-rebranding/ nad on ecan find all the scripts and file of the repo 
+Note: After cloning this repository (iccn-rebranding), one needs to change to the directory iccn-rebranding/ and one can find all the scripts and file of the repo 
 there. 
 
 Hope this helps!!!
