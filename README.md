@@ -16,9 +16,9 @@ There are three scripts for each method. It depends on three different scenarios
               
   How iccnlogo.sh works?
   
-    There is a repository named iccn-theme wherein are stored latest iccn logos. The bash script clone that repository and downloads all the images. It then changes
-    its directory to the downloaded iccn-theme/ and then copies all the images to the main file where all the logos are present on the gateway responisble for
-    GUI changes. It then deletes the iccn-theme/ directory, so that next the same issue comes, the folders should not overlap.
+    There is a repository named iccn-theme wherein are stored latest iccn logos. The bash script clones that repository and downloads all the images. It then changes
+    its directory to the downloaded iccn-theme/ directory and then copies all the images to the main file where all the logos are present on the gateway responisble
+    for GUI changes. It then deletes the iccn-theme/ directory, so that next the same issue arises, the folders would not overlap.
 
 
   Another way the logos can be reverted is by running the python script iccnlogo.py. One needs to be in one of the same networks the gateway is connected (either VPN
