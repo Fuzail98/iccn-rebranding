@@ -47,13 +47,13 @@ for pkg in packages:
 ###############################################################################################################
 # Running the commands for changes to take place
 
-with open('commands_core_logo.txt') as f:
+with open('commands.txt') as f:
     commands = f.read().splitlines()
 time.sleep(2)
-# print(f'Changes taking place on {ipaddr}, Please wait...')
+print(f'Changes taking place on {ipaddr}, Please wait...')
 print('changes taking places')
 for cmnd in commands:
-    print(f'Sending command: {cmnd}')
+    # print(f'Sending command: {cmnd}')
     shell.send(cmnd + '\n')
     time.sleep(2)
 tmpout3 = shell.recv(10000)
@@ -62,16 +62,6 @@ print('#' * 120)
 
 ###############################################################################################################
 # Conditional output to check if the changes have taken place
-
-shell.send("jq '' /usr/local/opnsense/version/core | grep ICCN" + '\n')
-time.sleep(2)
-tmpout4 = shell.recv(10000)
-# print(tmpout4.decode())
-
-if 'ICCN' in tmpout4.decode():
-    print('Changes have been changed! Please refresh your GUI and/or clear the cache on your browser.')
-else:
-    print("Changes haven't been made!!! Please try again.")
 
 shell.send('ls /usr/local/opnsense/www/themes/tukan/build/images/' + '\n')
 time.sleep(2)
