@@ -33,7 +33,7 @@ then
     echo "Package: $pkg_name already installed. Executing the commands to make changes in the core file!!!"
 else
     echo "$pkg_name not installed. Installing ' $pkg_name ' ..."
-    pkg install $pkg_name
+    pkg install -y $pkg_name
 fi
 
 # Making changes in the JSON file
