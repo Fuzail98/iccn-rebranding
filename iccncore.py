@@ -30,13 +30,13 @@ time.sleep(1)
 ###############################################################################################################
 # Installing required packages if not installed
 
-packages = ['bash', 'jq', 'wget']
+packages = ['bash', 'jq', 'wget', 'git']
 for pkg in packages:
     shell.send(f'pkg info {pkg}' + '\n')
     time.sleep(2)
     tmpout2 = shell.recv(10000)
     if f"pkg: No package(s) matching {pkg}" in tmpout2.decode():
-        shell.send(f'pkg install {pkg}' + '\n')
+        shell.send(f'pkg install -y {pkg}' + '\n')
         time.sleep(2)
         shell.send('y' + '\n')
         time.sleep(2)
